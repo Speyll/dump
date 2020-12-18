@@ -1,66 +1,78 @@
 #!/bin/sh
 
-# a="%{F#88C0D0}"
-# t="%{F-}"
+i="%{F#073642}"
+e="%{F-}"
 
 # Get your public IP
 pubip (){
-	curl -s ipinfo.io/ip
-}
-
-# Covid19 tracking api set to Australia, change to your country
-covid19 (){
-	curl -s https://corona-stats.online/Algeria\?format\=json | python3 -c 'import sys,json;data=json.load(sys.stdin)["data"][0];print("?",data["cases"],"?",data["deaths"])'
+	while :; do
+		var=$(curl -s ipinfo.io/ip)
+		echo "$iO$e $var"
+    done
 }
 
 # Get your private IP
 privip (){
-	ip addr show | grep wl | awk '/inet/ {print $2}'
+	while :; do
+		var=$(ip addr show | grep wl | awk '/inet/ {print $2}')
+		echo "$iO$e $var"
+    done
 }
 
 # Memory management
 memory (){
-	free -h | awk '/Mem/ {print $2}'
+	while :; do
+		var=$(free -h | awk '/Mem/ {print $2}')
+		echo "$iO$e $var"
+    done
 }
 
 # Hard drive free space.
 drive (){
-	df -h | grep '/$' | awk '{print $5}'
+	while :; do
+		var=$(df -h | grep '/$' | awk '{print $5}')
+		echo "$iO$e $var"
+    done
 }
 
 # CPU temp.
 cpu_temp (){
-	sensors | awk '/Core 0/ {print $3}'
+	while :; do
+		var=$(sensors | awk '/Core 0/ {print $3}')
+		echo "$iO$e $var"
+    done
 }
 
 # Mixer volume level
 volume (){
-	awk -F"[][]" '/dB/ { print $2 }' <(amixer sget Master)
+	while :; do
+		var=$(awk -F"[][]" '/dB/ { print $2 }' <(amixer sget Master))
+		echo "$iO$e $var"
+    done
 }
 
 # Show the time and date
 print_date (){
-	date -u
+	while :; do
+		var=$(date -u)
+		echo "$iO$e $var"
+		sleep 4s
+    done
 }
 
 # Show the local temperature. Change 'Algiers' to your local area.
 weather(){
-    LOCATION=Algiers
-
-    printf "%s" "$SEP1"
-    if [ "$IDENTIFIER" = "unicode" ]; then
-        printf "%s" "$(curl -s wttr.in/$LOCATION?format=1)"
-    else
-        printf "%s" "$(curl -s wttr.in/$LOCATION?format=1 | grep -o "[0-9].*")"
-    fi
-    printf "%s\n" "$SEP2"
+	while :; do
+		var=$(curl -s wittr.in/Algiers?format=1)
+		echo "$iO$e $var"
+    done
 }
 
 while true
 do
-	BAR_INPUT="%{l}$(cpu_temp) $(memory) $(drive) %{c} ${weather} ${covid19}%{r}$(privip) $(pubip) $(volume)% $(print_date)"
+	BAR_INPUT="%{l}%{c}%{r}$(privip) $(pubip) $(cpu_temp) $(memory) $(drive) $(volume)% $(print_date)"
 	echo $BAR_INPUT
-	sleep 1
+	sleep 1s
 done
 
 #lemonbar -g x20 -o -1 -f "Cozette:size=9" -B "#002b36" -F "#657b83"
