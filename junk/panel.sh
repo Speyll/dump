@@ -3,6 +3,11 @@
 # a="%{F#88C0D0}"
 # t="%{F-}"
 
+# Get your public IP
+pubip (){
+	curl api.ipify.org
+}
+
 # Get your private IP
 privip (){
 	ip addr show | grep wl | awk '/inet/ {print $2}'
@@ -35,9 +40,9 @@ print_date (){
 
 while true
 do
-	BAR_INPUT="%{l}?$(cpu_temp) ?$(memory) ?$(drive) %{c}%{r}$(privip) ?$(volume)% ?$(print_date)"
+	BAR_INPUT="%{l}$(cpu_temp) $(memory) ?$(drive) %{c}%{r}$(privip) $(pubip) $(volume)% $(print_date)"
 	echo $BAR_INPUT
 	sleep 1
 done
 
-#lemonbar -g x20 -o -1 -f "Cozette:size=9" -B #002b36 -F #657b83
+#lemonbar -g x20 -o -1 -f "Cozette:size=9" -B "#002b36" -F "#657b83"
