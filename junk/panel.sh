@@ -5,7 +5,12 @@
 
 # Get your public IP
 pubip (){
-	curl api.ipify.org
+	curl -s ipinfo.io/ip
+}
+
+# Covid19 tracking api set to Australia, change to your country
+covid19 (){
+	curl -s https://corona-stats.online/Algeria\?format\=json | python3 -c 'import sys,json;data=json.load(sys.stdin)["data"][0];print("?",data["cases"],"?",data["deaths"])'
 }
 
 # Get your private IP
@@ -38,9 +43,22 @@ print_date (){
 	date -u
 }
 
+# Show the local temperature. Change 'Algiers' to your local area.
+weather(){
+    LOCATION=Algiers
+
+    printf "%s" "$SEP1"
+    if [ "$IDENTIFIER" = "unicode" ]; then
+        printf "%s" "$(curl -s wttr.in/$LOCATION?format=1)"
+    else
+        printf "%s" "$(curl -s wttr.in/$LOCATION?format=1 | grep -o "[0-9].*")"
+    fi
+    printf "%s\n" "$SEP2"
+}
+
 while true
 do
-	BAR_INPUT="%{l}$(cpu_temp) $(memory) ?$(drive) %{c}%{r}$(privip) $(pubip) $(volume)% $(print_date)"
+	BAR_INPUT="%{l}$(cpu_temp) $(memory) $(drive) %{c} ${weather} ${covid19}%{r}$(privip) $(pubip) $(volume)% $(print_date)"
 	echo $BAR_INPUT
 	sleep 1
 done
