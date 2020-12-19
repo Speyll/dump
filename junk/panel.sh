@@ -1,8 +1,9 @@
 #!/bin/sh
 
 # Colors
-i="%{F#88C0D0}[%{F-}"
-e="%{F#88C0D0}]%{F-}"
+i="%{F#d33682}[%{F-}"
+e="%{F#d33682}]%{F-}"
+n="%{F#d33682}"
 
 # Get your public IP
 pubip (){
@@ -21,7 +22,8 @@ privip (){
 
 # Memory management
 memory (){
-	free -h | awk '/Mem/ {print $2}'
+    var=$(free -h | awk '/Mem/ {print $2}')
+    echo "$n[ %{F-} $var %{F#d33682}]%{F-}"
 }
 
 # Hard drive free space.
@@ -51,9 +53,17 @@ weather(){
 
 while true
 do
-	BAR_INPUT="%{l}%{c}%{r}$i$(privip)$e $i$(pubip)$e $i$(cpu_temp)$e $i$(memory)$e $i$(drive)$e $i$(volume)%$e $i$(print_date)$e"
+    BAR_INPUT="%{l}%{c}%{r}$i$(privip)$e $i$(pubip)$e $i$(cpu_temp)$e $(memory) $(drive) $i$(volume)%$e $i$(print_date)$e"
 	echo $BAR_INPUT
 	sleep 1
 done
 
 #lemonbar -g x20 -o -1 -f "Cozette:size=9" -B "#002b36" -F "#657b83"
+
+Weather: ⚙
+Priv ip: 
+Public ip: ⮂
+Cpu temp: 
+Drive: 
+Volume: 
+Date: 
