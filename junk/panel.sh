@@ -24,7 +24,7 @@ cpu_temp (){
 
 # Memory management
 memory (){
-    var=$(free -h | awk '/Mem/ {print $2}')
+    var=$(free -h | awk '/Mem/ {print $3}')
     echo "$c[$e $var$c]$e"
 }
 
@@ -40,15 +40,9 @@ privip (){
 	echo "$c[$e $var$c]$e"
 }
 
-# Get your public IP.
-pubip (){
-	var=$(curl -s ipinfo.io/ip)
-	echo "$c[⮂$e $var$c]$e"
-}
-
 while true
 do
-    BAR_INPUT="%{l}%{c}%{r}$(pubip) $(privip) $(drive) $(memory) $(cpu_temp) $(volume)% $(print_date)"
+    BAR_INPUT="%{l}%{c}%{r}$(privip) $(drive) $(memory) $(cpu_temp) $(volume)% $(print_date)"
 	echo $BAR_INPUT
 	sleep 1
 done
