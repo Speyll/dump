@@ -36,8 +36,9 @@ drive (){
 
 # Get your private IP.
 privip (){
-	var=&(ip addr show | grep wl | awk '/inet/ {print $2}')
+    var=$(ip addr show | grep wl | awk '/inet/ {print $2}')
 	echo "$c[ $e $var $c]$e"
+}
 
 # Get your public IP.
 pubip (){
@@ -63,5 +64,3 @@ do
 	echo $BAR_INPUT
 	sleep 1
 done
-
-#lemonbar -g x20 -o -1 -f "Cozette:size=9" -B "#002b36" -F "#657b83"
