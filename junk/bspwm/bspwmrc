@@ -13,7 +13,7 @@ bspc monitor -d I II III
 pkill xwinwrap | pkill hsetroot | pkill sxiv
 
 # Image
-hsetroot -cover ~/Images/Walls/2.jpg
+hsetroot -cover ~/Images/Walls/1.jpg
 #hsetroot -solid "#000000"
 
 # Animated background
@@ -32,7 +32,6 @@ xbacklight -set 60 &
 bspc rule -a 'Firefox' desktop='^1'
 bspc rule -a 'mpv' desktop='^3' center=on state=pseudo_tiled
 bspc rule -a 'nnn' center=on state=pseudo_tiled
-bspc rule -a 'scratchpad' sticky=on center=on state=floating
 
 # Split ratio and gapless monocle
 bspc config split_ratio             0.52
@@ -42,9 +41,8 @@ bspc config gapless_monocle         false
 bspc config focus_follows_pointer   true
 
 # Lemonbar
-#[ -e "$fifo" ] && bspc subscribe report > "$fifo" &
 pkill lemonbar | pkill panel.sh
-pgrep -x lemonbar > /dev/null || ~/panel.sh | lemonbar -g x20 -f "xos4 Terminus:size=8" -o -1 -f "Cozette:size=9" -B "#002b36" -F "#657b83" &
+~/panel.sh | lemonbar -g x20 -f "-xos4-terminus-medium-r-normal--12-120-72-72-c-60-iso10646-1" -o -1 -f "-wuncon-siji-medium-r-normal--10-100-75-75-c-80-iso10646-1" -B "#002b36" -F "#657b83" &
 
 ## Nord theme
 # Border gaps settings
