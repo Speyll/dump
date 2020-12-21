@@ -52,9 +52,9 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 if [ "$color_prompt" = yes ]; then
-    PS1='\[\e[0m\][\[\e[0m\]$\[\e[0m\]]\[\e[0m\][\[\e[0;35m\]\w\[\e[0m\]]\[\e0'
+    PS1='\[\e[0m\][\[\e[0m\]$\[\e[0m\]]\[\e[0m\][\[\e[0;35m\]\w\[\e[0m\]]\[\e0 '
 else
-    PS1='\[\e[0m\][\[\e[0m\]$\[\e[0m\]]\[\e[0m\][\[\e[0m\]\w\[\e[0m\]]\[\e0'
+    PS1='\[\e[0m\][\[\e[0m\]$\[\e[0m\]]\[\e[0m\][\[\e[0m\]\w\[\e[0m\]]\[\e0 '
 fi
 unset color_prompt force_color_prompt
 
