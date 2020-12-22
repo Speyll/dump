@@ -19,7 +19,7 @@ super + {Return, shift + Return}
 '
 
 # Dmenu
-super + s
+super + d
 	{dmenu_run -p 'Programs:'}
 
 # Browser

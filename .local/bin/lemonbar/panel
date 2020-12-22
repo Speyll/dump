@@ -12,7 +12,7 @@ pdate (){
 
 # Mixer volume level
 vol (){
-	var=$(awk -F"[][]" '/dB/ { print $2 }' <(amixer sget Master))
+	var=$(amixer get Master | awk '$0~/%/{print $4}' | tr -d '[]%')
 	echo "$c[$e $var $c]$e"
 }
 
