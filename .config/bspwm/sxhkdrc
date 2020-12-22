@@ -20,7 +20,7 @@ super + {Return, shift + Return}
 
 # Dmenu
 super + d
-	{dmenu_run -p 'Programs:'}
+	{dmenu_run -p 'Select a program:'}
 
 # Browser
 super + shift + b
