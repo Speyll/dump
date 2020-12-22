@@ -54,7 +54,7 @@ privip (){
 # Public IP
 pubip (){
 	var=$(curl ifconfig.me 2>/dev/null)
-	echo "$c[$e $var$c]$e"
+	echo "$c[$e $var$c]$e"
 }
 
 # Current Workspace
@@ -71,7 +71,7 @@ tot (){
 
 while true
 do
-    BAR_INPUT="%{l} $(cur) $(tot)%{c}%{r}$(pubip) $(privip) $(drive) $(mem) $(cpu) $(vol)% $(pdate)"
+    BAR_INPUT="%{l} $(cur) $(tot)%{c}%{r}$(pubip) $(privip) $(drive) $(mem) $(cpu) $(vol) $(pdate)"
 	echo $BAR_INPUT
 	sleep 1
 done
