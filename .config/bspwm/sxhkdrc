@@ -10,7 +10,7 @@ super + Escape
 
 # Terminal emulator / tmux
 super + {Return, shift + Return}
-	{urxvt, urxvt -name tmux -e tmux}
+	{st, st -c tmux -e tmux}
 
 : '
 # Terminal emulator / tmux
@@ -28,7 +28,7 @@ super + shift + b
 
 # File browser
 super + shift + p
-	urxvt -name nnn -e nnn
+	st -c nnn -e nnn
 
 # Lemonbar
 super + shift + r
