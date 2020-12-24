@@ -164,6 +164,15 @@ sudo rm /var/service/SSHD
 echo "Setting up Runit"
 sudo ln -s /etc/sv/wpa_supplicant/ /var/service
 sudo ln -s /etc/sv/dhcpcd/ /var/service
+sudo ln -s /etc/sv/acpid/ /var/service
+sudo ln -s /etc/sv/tlp/ /var/service
+sudo ln -s /etc/sv/openntpd/ /var/service
+
+sudo sv restart wpa_supplicant
+sudo sv restart dhcpcd
+sudo sv restart acpid
+sudo sv restart tlp
+sudo sv restart openntpd
 
 echo "Making font look nicer"
 sudo ln -s /etc/fonts/conf.avail/11-lcdfilter-default.conf /etc/fonts/conf.d
