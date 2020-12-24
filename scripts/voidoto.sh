@@ -43,10 +43,10 @@ sudo xbps-reconfigure -f linux5.9
 # sudo xbps-install lutris wine-staging giflib lib32-giflib libpng lib32-libpng libldap lib32-libldap gnutls lib32-gnutls mpg123 lib32-mpg123 openal lib32-openal v4l-utils lib32-v4l-utils libpulse lib32-libpulse libgpg-error lib32-libgpg-error alsa-plugins lib32-alsa-plugins alsa-lib lib32-alsa-lib libjpeg-turbo lib32-libjpeg-turbo sqlite lib32-sqlite libxcomposite lib32-libxcomposite libxinerama lib32-libgcrypt libgcrypt lib32-libxinerama ncurses lib32-ncurses opencl-icd-loader lib32-opencl-icd-loader libxslt lib32-libxslt libva lib32-libva gtk3 lib32-gtk3 gst-plugins-base-libs lib32-gst-plugins-base-libs
 
 echo "Installing Apps"
-sudo xbps-install xorg-minimal xrdb alsa-utils lm-sensors xbacklight tlp git bspwm sxhkd st-terminfo nnn neovim ncurses nnn neovim tmux mpv sxiv hsetroot picom lemonbar-xft base-devel libXft-devel libXinerama-devel scrot simple-mtpfs axel youtube-dl unzip openntpd ntfs-3g xdg-utils xprop xsetroot
+sudo xbps-install xorg-minimal xrdb alsa-utils lm_sensors xbacklight tlp bspwm sxhkd st-terminfo nnn neovim ncurses nnn neovim tmux mpv sxiv hsetroot picom lemonbar-xft base-devel libXft-devel libXinerama-devel scrot simple-mtpfs axel youtube-dl unzip openntpd ntfs-3g xdg-utils xprop xsetroot
 
 echo "Installing Fonts"
-sudo font-kakwafont font-Siji font-ibm-plex-otf
+sudo xbps-install font-kakwafont font-Siji font-ibm-plex-otf
 
 echo "Setting X Keyboard"
 sudo mkdir /etc/X11/xorg.conf.d
@@ -160,6 +160,10 @@ sudo rm /var/service/agetty-tty4
 sudo rm /var/service/agetty-tty5
 sudo rm /var/service/agetty-tty6
 sudo rm /var/service/SSHD
+
+echo "Setting up Runit"
+sudo ln -s /etc/sv/wpa_supplicant/ /var/service
+sudo ln -s /etc/sv/dhcpcd/ /var/service
 
 echo "Making font look nicer"
 sudo ln -s /etc/fonts/conf.avail/11-lcdfilter-default.conf /etc/fonts/conf.d
