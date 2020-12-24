@@ -155,10 +155,10 @@ EOF
 '
 
 echo "Removing Unused Services"
-sudo rm /var/service/TTY3
-sudo rm /var/service/TTY4
-sudo rm /var/service/TTY5
-sudo rm /var/service/TTY6
+sudo rm /var/service/agetty-tty3
+sudo rm /var/service/agetty-tty4
+sudo rm /var/service/agetty-tty5
+sudo rm /var/service/agetty-tty6
 sudo rm /var/service/SSHD
 
 echo "Making font look nicer"
