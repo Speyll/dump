@@ -1,0 +1,88 @@
+Random:
+================
+mdp: 6f4eb2b3407a
+Debut training: 18 - janv
+406 cores needed
+269 Sentience shards
+Keep 1 Grifon / 1 Centaur
+
+Trove:
+================
+Missing Emps:
+------------
+	PC: Red Explosive Epilogue
+	Boomer: Blue Explo
+	SH: Red Pyro
+	Chloro: Blue Explosive + BB
+
+Lesser not done yet
+------------
+	LL: Pyro + Explo + Vampy
+
+Club stuff
+------------
+me/ from DefyNation is recruiting | Lvl 10 club looking for new members | Friendly community | Delves | Max fixtures | Weekly Giveaways | Join us in discord at https://discord.gg/4T9UDQF | no reqs | /w me vv3
+
+me/ Leave a prop pepoGun pepoLove
+
+me/ Huge Pin party celebrating lvl 10 at /joinworld DefyNation join us! pepoLove
+
+me/ Air | Water | Fire | Delves | Giants quests at /joinworld DefyNation ty for the help pepoLove
+
+me/ Beacons at /joinworld DefyNation (red portal) pepoLove
+
+
+Miss Adv Costumes:
+------------
+	Gumball Gunner
+	Demonic Inferno
+	Pyromagical Prankster
+
+Patron
+------------
+	-26 Dec -> 10 Jan
+	-10 Jan -> 25 Jan
+	-26 Jan -> 10 Feb
+	-10 16:40 Feb -> Thursday, 25 February 2021
+	
+Mastery Packs:
+------------
+	Raving Revenant Pack: 70 + 70 + 50 + 50 + 1 Golden Chest = 240
+	Flower Power Pack: 70 + 70 + 20 + 100 = 260
+	Boomeranger Adventure Pack: 70 + 70 + 25 + (25 + 25 + 25 + 25) + 25 = 190 to 290
+	
+
+Gardening:
+------------
+Club Gardening:
+------------
+	Golden Soul
+	Min: 112
+
+	336 Moonlight
+	3920 Sun = 35280 flux average
+	3920 Tentacle = 929040 flux average
+
+	964k flux for 3m.
+
+
+Skyrim:
+================
+Fast Thieves guild:
+------------
+Markarth - Silver Lining: setstage TGTQ01 0
+Solitude - The Dainty Sload: setstage TGTQ02 0
+Whiterun - Imitation Amnesty: setstage TGTQ03 0
+Windhelm - Summerset Shadows: setstage TGTQ04 0
+setstage TGLarceny 80
+setstage TGLeadership 0
+
+Id's:
+------------
+Snowberries	0001b3bd
+Claw		0006b689
+Blisterwort	0004da25
+Glowing Mush	0007ee01
+
+
+Game.AddToInventory("Items.PerkPointsResetter",1)

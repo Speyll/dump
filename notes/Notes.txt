@@ -1,0 +1,186 @@
+FFmpeg settings:
+================
+Opti H264:
+------------
+	ffmpeg -i p.mp4 -c:a copy -metadata:s:v rotate="" -c:v libx264 -c:a aac -tile-columns 2 -g 240 -threads 8 -crf 31 -profile:v high -pix_fmt yuv420p -color_primaries 1 -color_trc 1 -colorspace 1 -movflags +faststart h264test.mp4
+
+Opti H265:
+------------
+	ffmpeg -i .mp4 -c:a copy -metadata:s:v rotate="" -c:v libx265 -c:a aac -tile-columns 2 -g 240 -threads 8 -crf 31 -pix_fmt yuv420p -color_primaries 1 -color_trc 1 -colorspace 1 -movflags +faststart h265test.mp4
+
+Opti WebM:
+------------
+	ffmpeg -i z.mp4 -c:a copy -metadata:s:v rotate="" -tile-columns 2 -g 240 -threads 8 -crf 31 -c:v libvpx-vp9 -c:a libopus -pix_fmt yuv420p -color_primaries 1 -color_trc 1 -colorspace 1 -movflags +faststart -cpu-used -5 -deadline realtime test.webm
+
+Bulk Preset:
+------------
+	for %i in ("*.mp4*") do ffmpeg -i "%i" -c:a copy -metadata:s:v rotate="" -c:v libx264 "newfiles%~ni.mp4"
+
+Bulk H264:
+------------
+	for %i in ("*.mp4*") do ffmpeg -i "%i" -c:a copy -metadata:s:v rotate="" -c:v libx264 -c:a aac -preset medium -b:v 3000k -minrate 1500k -maxrate 4350k -tile-columns 2 -g 240 -threads 8 -quality good -crf 31 -profile:v high -color_primaries 1 -color_trc 1 -colorspace 1 -movflags +faststart "n%~ni.mp4"
+
+Bulk WebM:
+------------
+	for %i in ("*.mp4*") do ffmpeg -i "%i" -c:a copy -metadata:s:v rotate="" -tile-columns 2 -g 240 -threads 8 -crf 31 -c:v libvpx-vp9 -c:a libopus -color_primaries 1 -color_trc 1 -colorspace 1 -movflags +faststart -cpu-used -5 -deadline realtime "newfiles%~ni.webm"
+
+Rotate Preset:
+------------
+	for %i in ("*.mp4*") do ffmpeg -i "%i" -vf transpose=2 -c:a copy -metadata:s:v rotate="" -c:v libx264 "newfiles%~ni.mp4"
+
+Rotate H264:
+------------
+	for %i in ("*.mp4*") do ffmpeg -i "%i" -vf transpose=2 -c:a copy -metadata:s:v rotate="" -c:v libx264 -c:a aac -preset medium -tile-columns 2 -g 240 -threads 8 -crf 31 -profile:v high -pix_fmt yuv420p -color_primaries 1 -color_trc 1 -colorspace 1 -movflags +faststart "newfiles%~ni.mp4"
+
+Opti Android 2.3:
+------------
+	for %i in ("*.mp4*") do ffmpeg -i "%i" -c:a copy -metadata:s:v rotate="" -c:v libx264 -c:a aac -preset medium -vf scale=480 -tile-columns 2 -g 240 -threads 8 -crf 31 -profile:v baseline -pix_fmt yuv420p -color_primaries 1 -color_trc 1 -colorspace 1 -movflags +faststart "newfiles%~ni.mp4"
+
+Bulk Ogg Vor
+------------
+	for %i in ("*.mp3*") do ffmpeg -i "%i" -c:a libvorbis -q:a 1 -movflags use_metadata_tags -vn "%~ni.ogg"
+
+Bulk Ogg Opus
+------------
+	for %i in ("*.mp3*") do ffmpeg -i "%i" -c:a libopus -q:a 1 -movflags use_metadata_tags -vn "%~ni.ogg"
+
+Bulk GIF WebM
+------------
+	for %i in ("*.gif*") do ffmpeg -i "%i" -c:a copy -metadata:s:v rotate="" -movflags +faststart -cpu-used -5 -deadline realtime "newfiles%~ni.webm"
+
+GIF to WebM	
+------------
+	ffmpeg -i test3.gif -c:a copy -metadata:s:v rotate="" -movflags +faststart -cpu-used -5 -deadline realtime Test.webm
+
+Img WebM:
+------------
+	ffmpeg -i %03d.jpg -c:a copy -metadata:s:v rotate="" -aspect 16:9 -movflags +faststart -cpu-used -5 -deadline realtime test.webm
+
+Vid GIF:
+------------
+	for %i in ("*.mp4*") do ffmpeg -i "%i" "newfiles%~ni.gif"
+
+
+	ffmpeg -ss 00:00:17 -i p.mp4 -to 00:01:39 -c copy output.mp4
+
+
+ImageMagick settings:
+================
+Exemple:
+------------
+	magick *.jpg -resize 1920x1080 -background black -compose Copy -gravity center -extent 1920x1080 .jpg
+
+Resize:
+------------
+	magick convert z.jpg -resize 150x150 -compose Copy -gravity center -extent 150x150 z.png
+	
+Bulk Webp
+------------
+	for %i in ("*.png*") do magick convert "%i" -define webp:lossless=true "%~ni.webp"
+	
+	for %i in ("*.jpg*") do magick convert "%i" -define webp "%~ni.webp"
+	
+Bulk convertion
+------------
+	for %i in ("*.png*") do magick convert "%i" "%~ni.jpg"
+
+Bulk fill:
+------------
+	for %i in ("*.jpg*") do magick "%i" -resize 1920x1080 -background black -compose Copy -gravity center -extent 1920x1080 "n%~ni.jpg"
+
+Img to Static Webp:
+------------
+	magick Test.jpg -quality 100 -define webp:lossless=true -resize 1920x1080 -background black -compose Copy -gravity center -extent 1920x1080 Test.webp
+
+Img to GIF:
+------------
+	magick convert -delay 500 *.jpg -resize 1920x1080 -background black -compose Copy -gravity center -extent 1920x1080 -loop 0 Test.gif
+
+Img to Anim Webp:
+------------
+	magick convert -delay 500 *.jpg -quality 100 -define webp:lossless=true -resize 1920x1080 -background black -compose Copy -gravity center -extent 1920x1080 -loop 0 Test.webp
+	
+	magick convert -delay 500 *.webp -resize 1920x1080 -background black -compose Copy -gravity center -extent 1920x1080 -loop 0 Test.webp
+
+
+
+Vegas Pro Set:
+================
+	BITERATE: VBR 20 000,00 - 18 000,00
+	AUDIO: 48Khz - 384
+
+
+OBS Settings:
+================
+Local record:
+------------
+	NVENC - 1080p
+	BITERATE: CBR 15000 kbps
+	Keyframe Interval: 0
+	Preset: Max Performance
+	Profile: High
+	Disable Look-ahead
+	Disable Psych Visual Tuning
+	GPU 0
+	Max B-Frames 2
+
+Streaming
+------------
+	NVENC - 360p Rescale
+	BITERATE: CBR 276 Kbps
+	Keyframe Interval: 2
+	Preset: Max Performance
+	Profile: High
+	Disable Look-ahead
+	Disable Psych Visual Tuning
+	GPU 0
+	Max B-Frames 2
+
+
+MAC Adresses:
+================
+	Telephone Maman: C8:38:70:C3:AA:B2
+	Demo Parents: D0:6F:4A:36:80:15
+	Android-TV Parents: A4:E6:15:1B:D1:DE
+	Demo Salon: 00:11:7F:47:E8:18
+	Demo Meme: 00:11:7F:43:E6:4B
+	Tablette Lydia: B8:57:D8:CD:50:F1
+	Television Lydia: 14:49:E0:06:7F:B2
+	Telephone Lydia: 64:B3:10:B6:C7:66
+	PC Lydia: 34:E6:AD:EF:8F:E4
+
+Numéro de téls:
+================
+	Ooredoo 1: 0558597940
+	Ooredoo 2: 0555793944
+	Mobilis: 0672746354
+
+
+Miscellaneous:
+================
+	Duckduckgo rice: speyllrice
+	Maman code: En 19** Linda a voyagé a Salou
+
+Voix Montage:
+------------
+	Voix bien: Antoine Sad
+	Fast +5
+	Low -2
+
+
+Twitter Unfollow mass script
+------------
+
+(function() {
+// unfollow
+let unfollowButtons = document.querySelectorAll(`div.css-18t94o4.css-1dbjc4n.r-urgr8i.r-42olwf.r-sdzlij.r-1phboty.r-rs99b7.r-1w2pmg.r-1vsu8ta.r-aj3cln.r-1fneopy.r-o7ynqc.r-6416eg.r-lrvibr`);
+unfollowButtons.forEach(function(elm) { elm.click(); });
+
+// confirm unfollow
+console.log('unfollowing...');
+let unfollowCount = 0;
+let clickInterval = setInterval(function() {
+ let button = document.querySelector(`div.css-18t94o4 css-1dbjc4n r-urgr8i r-42olwf r-sdzlij r-1phboty r-rs99b7 r-16y2uox r-1w2pmg r-1vuscfd r-1dhvaqw r-1fneopy r-o7ynqc r-6416eg r-lrvibr`.replace(/\s/gi, '.'));
+ if (button) { button.click(); unfollowCount++; console.log('unfollowed'); } else { clearInterval(clickInterval); console.log('done unfollowing. unfollowCount = ', unfollowCount); }
+}, 100);
+})();

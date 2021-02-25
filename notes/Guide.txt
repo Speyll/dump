@@ -1,0 +1,273 @@
+General random GNU/Linux guide
+================
+Setting up Internet
+------------
+	ip link show
+	sudo ip link set up wlp*s0
+	sudo ip link set up enp*s0
+
+Rfkill unblock
+------------
+	sudo echo 'blacklist ideapad_laptop' | sudo tee -a /etc/modprobe.d/blacklist-ideapad-laptop.conf
+	Rfkill unblock all
+	sudo reboot now
+
+Wpa Supplicant
+------------
+This is how to setup wpa supplicant
+	wpa_passphrase 'SSID' 'PASSWORD' >> /etc/wpa_supplicant/wpa_supplicant-wlp*s0.conf
+	sudo ln -s /etc/sv/wpa_supplicant /var/service/
+	sudo ln -s /etc/sv/dhcpcd /var/service/
+	sudo wpa_supplicant -B -i wlp*s0 -c /etc/wpa_supplicant/wpa_supplicant-wlp*s0.conf
+
+
+
+Software needed
+================
+Void Linux
+------------
+sudo xbps-install -S
+
+	* Core: xorg-minimal xf86-video-intel libva-intel-driver xrdb alsa-utils lm-sensors xbacklight tlp git
+	* Rice: bspwm sxhkd st st-terminfo ncurses nnn neovim tmux
+	* Fonts: font-hack-ttf terminus-font font-Siji
+	* Utils: mpv sxiv hsetroot compton lemonbar-xft
+	* Dev-utils: base-devel libXft-devel libXinerama-devel
+	* Optional: scrot simple-mtpfs axel youtube-dl
+	* Conveniant: unzip wireless_tools openntpd ntfs-3g xdg-utils xprop redshift bluez bluez-alsa
+	* GTK settings: tango-icon-theme arc-theme
+
+Alpine Linux
+------------
+sudo apk add
+
+	* Core: xorg-server xf86-video-intel libva-intel-driver
+	* xrdb alsa-utils alsa-lib alsaconf lm-sensors pm-utils xbacklight tlp
+	* Rice: bspwm sxhkd st ncurses-terminfo ncurses nnn neovim tmux
+	* Fonts: ttf-hack terminus-font font-siji
+	* Utils: mpv sxiv setroot compton lemonbar
+	* Dev-utils: git make gcc g++ libx11-dev libxft-dev libxinerama-dev
+	* Optional: scrot simple-mtpfs axel youtube-dl
+	* Conveniant: unzip openntpd ntfs-3g xdg-utils xprop redshift
+	* GTK settings: tango-icon-theme arc-theme
+
+
+Keyboard Layout
+------------
+edit with: $ sudo /etc/X11/xorg.conf.d/00-keyboard.conf
+
+	Section "InputClass"
+        	Identifier "system-keyboard"
+        	MatchIsKeyboard "on"
+        	Option "XkbLayout" "fr"
+	EndSection
+
+
+
+Post setup tweaks
+================
+	Void Linux
+	==============
+	Change Intel microcode
+	------------
+		xbps-install -S void-repo-nonfree
+		xbps-install -Su
+		xbps-install -S intel-ucode
+
+	edit '/etc/dracut.conf.d/intel_ucode.conf' and put 'early_microcode=yes'
+		sudo xbps-reconfigure -f linux5.4 (5.4 is the actual version)
+
+	Locality settings
+	------------
+		Uncomment needed locality in: /etc/default/libc-locales
+		Set my locality in: /etc/locale.conf
+
+	Disable intel cpu mitigation
+	------------
+	edit: /etc/default/grub
+	in GRUB_CMDLINE_LINUX_DEFAULT put:
+		"noibrs noibpb nopti nospectre_v2 nospectre_v1 l1tf=off nospec_store_bypass_disable no_stf_barrier mds=off mitigations=off"
+	sudo update-grub
+
+	Unused services
+	------------
+	in /var/service/
+	remove:
+		TTY3, TTY4, TTY5, TTY6, and SSHD.
+
+	Alsamixer tweaks
+	------------
+		aplay -l
+	edit /usr/share/alsa/alsa.conf
+
+	edit /etc/asound.conf (mkfile if not created)
+		defaults.pcm.card 1
+		defaults.pcm.device 0
+		defaults.ctl.card 1
+
+	or
+
+	edit /etc/modprobe.d/alsa-base.conf
+		options snd_hda_intel enable=1 index=0
+		options snd_usb_intel enable=0 index=1
+
+	Alpine linux
+	==============
+	Add user (lyes)
+	------------
+		adduser myname
+		apk add sudo
+		visudo
+
+	User privilege and xorg setup
+	------------
+	root ALL=(ALL) ALL
+	lyes ALL=(ALL) ALL
+
+		su myname
+		sudo setup-xorg-base
+		sudo vi /etc/apk/repositories
+		sudo apk update
+
+	Add services
+	------------
+		rc-update add tlp
+		rc-update add wpa_supplicant
+		rc-service tlp start
+		rc-service wpa_supplicant start
+
+
+Notes
+================
+Alpine switch bash
+------------
+	sudo vi /etc/passwd
+	username:x:1634231:100:Your Name:/home/username:/bin/bash
+
+Packages needed for compiling surf
+------------
+	* libgtkdgl-devel libgcrypt-devel webkit2gtk-devel 
+	* gstreamer1-devel gst-plugins-good1 
+	* gst-plugins-base1-devel gst-libav 
+	* xprop curl
+
+Patch suckless
+------------
+	patch -Np1 -i st20180616-0.8.2.diff
+
+Mount Android devices manually
+------------
+	simple-mtpfs -l
+	simple-mtpfs --device 1 /media/phone
+	sudo fusermount -u /media/phone
+
+Sync time
+------------
+	ntpd -s -d
+	sudo hwclock --systohc
+	
+Update fonts Linux:
+------------
+	cd /usr/share/fonts/misc
+	sudo mkfontscale
+	sudo mkfontdir
+	xset fp rehash
+	sudo fc-cache -f -v
+
+
+Xrandr wierd settings
+------------
+	xrandr --setprovideroutputsource 1 0
+	xrandr --output DVI-I-1 --primary --mode 1920x1080 --pos 0x1080 --rotate normal --output HDMI2 --mode 1920x1080 --pos 0x0 --rotate normal
+
+Windows refresh icones
+------------
+	taskkill /F /IM explorer.exe
+	cd /d %userprofile%\AppData\Local
+	attrib –h IconCache.db
+	del IconCache.db
+	start explorer.exe
+
+Siji icones
+------------
+
+
+
+
+
+
+
+
+
+
+bluetooth:
+ 
+
+workspace current:
+ 	
+
+workspace total:
+ 
+
+time: 
+  
+
+volume:
+e050 - 
+e04e - 
+e04f - 
+e051 - 
+e052 - 
+e053 - 
+
+cpu:
+e026 - 
+
+
+memory:
+e028 - 
+e021 - 
+
+temp:
+e0cf - 
+
+drive:
+e1d5 - 
+e1d6 - 
+e1e1 - 
+e02a - 
+e02b - 
+
+internet:
+e048 - 
+e044 - 
+e045 - 
+e046 - 
+e047 - 
+e049 - 
+e04a - 
+e04b - 
+
+battery:
+e030 - 
+e031 - 
+e032 - 
+e033 - 
+e034 - 
+e035 - 
+e036 - 
+e037 - 
+
+Font names:
+------------
+Kakwa 12px:
+-kakwa-kakwafont-medium-r-bold--12-120-72-72-c-60-iso8859-1
+-kakwa-kakwafont-medium-r-normal--12-120-72-72-c-60-iso8859-1
+
+Gohu 11px:
+-gohu-gohufont-medium-r-normal--11-80-100-100-c-60-iso10646-1
+-gohu-gohufont-bold-r-normal--11-80-100-100-c-60-iso10646-1
+
+Gohu 14px:
+-gohu-gohufont-medium-r-normal--14-100-100-100-c-80-iso10646-1
+-gohu-gohufont-bold-r-normal--14-100-100-100-c-80-iso10646-1
