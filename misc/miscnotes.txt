@@ -1,15 +1,3 @@
-goal: 3.000.000 full harvest (2 weeks, 5 harvest)
---------------
-Cinna
-252
-
-252 Moonlight
-151200 Shape = 1,05m
-151200 Formi = 1,05m
-151200 Infinium = 1,05m
-
-3,15m for 3m pepoRR
---------------
 Golden Soul
 112
 
@@ -18,26 +6,6 @@ Golden Soul
 3920 Tentacle = 929040
 
 964k flux for 3m
-------------
-Tentacle
-167
-
-501 Moonlight
-2338 Golden = 1402800
-2338 Sunlight = 18704
-
-1,42m for 3m
-------------
-Builderite
-66666
-116
-
-464 Moonlight
-11600 Nitro = 928000 
-17400 Primo = 469800
-
-1,3m for 3m
-
 
 Gardening lvl1 -> 30
 ---------------------
@@ -59,7 +27,23 @@ Gardening lvl1 -> 30
 1000 primal green
 7500 veridium
 
+Chaos Crafter:
+-------------------
+10 + 20 + 20 + 6 + 20 + 20 + 20 = 116 Chaos core
+700 + 1200 + 500 + 1200 Enchanted wood
+1000 Chestnut
+1000 + 1000 + 900 Golden Seashell
+3 Ancient Scale
+600 + 500 + 600 Faerie Dust
+1600 Crystallized Clouds
+250 + 100 + 120 Meteorite
+500 Bottle
+700 WIld Cupcake
 
+150k * 7 + 50k = 1,1m flux
+
+
+---------------------
 ⣿⣿⣿⣿⠋⢩⢹⣿⣿⣿⣿⣽⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿ 
 ⣿⣿⣿⡧⣦⠄⢧⡙⢿⣟⢁⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠿⠟⢿ 
 ⣿⣿⣿⣷⣶⣶⣦⡈⠂⠄⠸⠿⠿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠉⠰⢠⣼ 
@@ -73,12 +57,8 @@ Gardening lvl1 -> 30
 ⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠈⠻⣷⣶⣾⣿⣿⣿⣿⣿⣿⠟⢡⣿⣿⣿⡟⠄⠄ 
 ⣦⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⣉⣹⣿⣿⣿⣿⠟⠁⣰⣿⣿⣿⣿⡇⠄⠄ 
 ⣿⣧⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠈⠉⠉⠙⠛⠉⠁⢀⣼⣿⣿⣿⣿⡟⠄⠄⠄
+---------------------
 
+Pass lydia:
+---------------------
 3845492422827140619
-
-165
-660
-1155
-1155
-
-1h03:40
