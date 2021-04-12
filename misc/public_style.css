@@ -1,0 +1,53 @@
+body {
+	font-family: sans-serif;
+	font-size: 16px;
+	background-color: #002b36;
+	user-select: none;
+}
+
+.wrapper {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.container {
+	display: flex;
+	align-items: flex-start;
+	justify-content: center;
+	flex-flow: row wrap;
+}
+
+.header {
+	color: #6c71c4;
+}
+
+.column {
+	padding: 1em;
+}
+
+a {
+	text-decoration: none;
+	color: #657b83;
+}
+
+a:hover {
+	color: #2aa198;
+}
+
+ul {
+	list-style: none;
+}
+
+/*
+@media (min-width: 700px) and (min-height: 550px) {
+	.wrapper {
+	background-image: url("https://i.ibb.co/X5rppcW/007.webp"), linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7));
+	background-blend-mode: overlay;
+	background-size: cover;
+
+	border: 2px solid white;
+	}
+}
+*/

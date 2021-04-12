@@ -6,8 +6,8 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 F3:: ;Stop
 ExitApp
 F2:: ; Start
-TpX = 283
-TpY = 185
+TpX = 213
+TpY = 261
 
 CoordMode, Mouse, Client
 Send, {o}

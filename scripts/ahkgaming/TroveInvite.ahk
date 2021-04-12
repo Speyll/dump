@@ -14,9 +14,9 @@ Send, {o}
 Sleep 500
 MouseClick, left, 324, 198
 Sleep 500
-MouseClick, left, 324, 249
+MouseClick, left, 324, 407
 Sleep 500
-MouseClick, left, 324, 303
+MouseClick, left, 324, 511
 Sleep 500
 
 
