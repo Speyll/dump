@@ -102,59 +102,11 @@ Img to Anim Webp:
 	
 	magick convert -delay 500 *.webp -resize 1920x1080 -background black -compose Copy -gravity center -extent 1920x1080 -loop 0 Test.webp
 
-
-
-Vegas Pro Set:
-================
-	BITERATE: VBR 20 000,00 - 18 000,00
-	AUDIO: 48Khz - 384
-
-
-OBS Settings:
-================
-Local record:
-------------
-	NVENC - 1080p
-	BITERATE: CBR 15000 kbps
-	Keyframe Interval: 0
-	Preset: Max Performance
-	Profile: High
-	Disable Look-ahead
-	Disable Psych Visual Tuning
-	GPU 0
-	Max B-Frames 2
-
-Streaming
-------------
-	NVENC - 360p Rescale
-	BITERATE: CBR 276 Kbps
-	Keyframe Interval: 2
-	Preset: Max Performance
-	Profile: High
-	Disable Look-ahead
-	Disable Psych Visual Tuning
-	GPU 0
-	Max B-Frames 2
-
-
-MAC Adresses:
-================
-	Telephone Maman: C8:38:70:C3:AA:B2
-	Demo Parents: D0:6F:4A:36:80:15
-	Android-TV Parents: A4:E6:15:1B:D1:DE
-	Demo Salon: 00:11:7F:47:E8:18
-	Demo Meme: 00:11:7F:43:E6:4B
-	Tablette Lydia: B8:57:D8:CD:50:F1
-	Television Lydia: 14:49:E0:06:7F:B2
-	Telephone Lydia: 64:B3:10:B6:C7:66
-	PC Lydia: 34:E6:AD:EF:8F:E4
-
 Numéro de téls:
 ================
 	Ooredoo 1: 0558597940
 	Ooredoo 2: 0555793944
 	Mobilis: 0672746354
-
 
 Miscellaneous:
 ================

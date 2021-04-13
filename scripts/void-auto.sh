@@ -43,7 +43,7 @@ sudo xbps-reconfigure -f linux5.9
 # sudo xbps-install lutris wine-staging giflib lib32-giflib libpng lib32-libpng libldap lib32-libldap gnutls lib32-gnutls mpg123 lib32-mpg123 openal lib32-openal v4l-utils lib32-v4l-utils libpulse lib32-libpulse libgpg-error lib32-libgpg-error alsa-plugins lib32-alsa-plugins alsa-lib lib32-alsa-lib libjpeg-turbo lib32-libjpeg-turbo sqlite lib32-sqlite libxcomposite lib32-libxcomposite libxinerama lib32-libgcrypt libgcrypt lib32-libxinerama ncurses lib32-ncurses opencl-icd-loader lib32-opencl-icd-loader libxslt lib32-libxslt libva lib32-libva gtk3 lib32-gtk3 gst-plugins-base-libs lib32-gst-plugins-base-libs
 
 echo "Installing Apps"
-sudo xbps-install xorg-minimal xrdb alsa-utils lm_sensors xbacklight tlp bspwm sxhkd st-terminfo nnn neovim ncurses nnn neovim tmux mpv sxiv hsetroot picom lemonbar-xft base-devel libXft-devel libXinerama-devel scrot simple-mtpfs wget youtube-dl unzip openntpd ntfs-3g xdg-utils xprop xsetroot samba cifs-utils smbclient xdpyinfo
+sudo xbps-install xorg-minimal xrdb alsa-utils lm_sensors xbacklight tlp bspwm sxhkd st-terminfo nnn neovim ncurses nnn neovim tmux mpv sxiv hsetroot picom lemonbar-xft base-devel libXft-devel libXinerama-devel scrot simple-mtpfs wget youtube-dl unzip openntpd ntfs-3g xdg-utils xprop xsetroot samba cifs-utils smbclient xdpyinfo tango-icon-theme arc-theme
 
 echo "Installing Fonts"
 sudo xbps-install font-kakwafont font-Siji font-ibm-plex-otf
