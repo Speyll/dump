@@ -36,7 +36,7 @@ sudo touch /etc/dracut.conf.d/intel_ucode.conf
 tee -a /etc/dracut.conf.d/intel_ucode.conf << EOF
 early_microcode=yes
 EOF
-sudo xbps-reconfigure -f linux5.9
+sudo xbps-reconfigure -f linux5.11
 
 # Reference: https://github.com/lutris/docs/blob/master/WineDependencies.md
 # echo "Installing Lutris (with Wine support)"
