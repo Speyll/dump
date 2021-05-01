@@ -43,7 +43,7 @@ sudo xbps-reconfigure -f linux5.11
 # sudo xbps-install lutris wine-staging giflib lib32-giflib libpng lib32-libpng libldap lib32-libldap gnutls lib32-gnutls mpg123 lib32-mpg123 openal lib32-openal v4l-utils lib32-v4l-utils libpulse lib32-libpulse libgpg-error lib32-libgpg-error alsa-plugins lib32-alsa-plugins alsa-lib lib32-alsa-lib libjpeg-turbo lib32-libjpeg-turbo sqlite lib32-sqlite libxcomposite lib32-libxcomposite libxinerama lib32-libgcrypt libgcrypt lib32-libxinerama ncurses lib32-ncurses opencl-icd-loader lib32-opencl-icd-loader libxslt lib32-libxslt libva lib32-libva gtk3 lib32-gtk3 gst-plugins-base-libs lib32-gst-plugins-base-libs
 
 echo "Installing Apps"
-sudo xbps-install xorg-minimal xrdb alsa-utils lm_sensors xbacklight tlp bspwm sxhkd st-terminfo nnn neovim ncurses tmux mpv sxiv hsetroot picom lemonbar-xft conky dunst base-devel libXft-devel libXinerama-devel libxcb-devel xcb-util-devel xcb-util-keysyms-devel xcb-util-xrm-devel xcb-util-wm-devel scrot simple-mtpfs wget youtube-dl unzip openntpd ntfs-3g xdg-utils xprop xsetroot samba cifs-utils smbclient xdpyinfo tango-icon-theme arc-theme git
+sudo xbps-install xorg-minimal xrdb alsa-utils lm_sensors xbacklight tlp bspwm sxhkd st-terminfo nnn neovim ncurses tmux mpv sxiv hsetroot picom lemonbar-xft conky dunst base-devel libXft-devel libXinerama-devel libxcb-devel xcb-util-devel xcb-util-keysyms-devel xcb-util-xrm-devel xcb-util-wm-devel scrot simple-mtpfs wget youtube-dl unzip openntpd ntfs-3g xdg-utils xprop xsetroot samba cifs-utils smbclient xdpyinfo tango-icon-theme arc-theme git connman
 
 echo "Installing Fonts"
 sudo xbps-install font-kakwafont font-Siji font-ibm-plex-otf
@@ -193,15 +193,19 @@ sudo rm /var/service/agetty-tty6
 sudo rm /var/service/SSHD
 
 echo "Setting up Runit"
-sudo ln -s /etc/sv/wpa_supplicant/ /var/service
-sudo ln -s /etc/sv/dhcpcd/ /var/service
+' Internet '
+sudo ln -s /etc/sv/connmand/ /var/service
+' sudo ln -s /etc/sv/wpa_supplicant/ /var/service
+ sudo ln -s /etc/sv/dhcpcd/ /var/service '
+
 sudo ln -s /etc/sv/acpid/ /var/service
 sudo ln -s /etc/sv/tlp/ /var/service
 sudo ln -s /etc/sv/openntpd/ /var/service
 sudo ln -s /etc/sv/smbd /var/service
 
-sudo sv restart wpa_supplicant
-sudo sv restart dhcpcd
+' sudo sv restart wpa_supplicant
+sudo sv restart dhcpcd '
+sudo sv restart connmand
 sudo sv restart acpid
 sudo sv restart tlp
 sudo sv restart openntpd
