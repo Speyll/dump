@@ -145,10 +145,12 @@ EndSection
 EOF
 
 echo "Setting Locales"
+sudo rm -rf /etc/locale.conf
 sudo touch /etc/locale.conf
 tee -a /etc/locale.conf << EOF
-export LANG="en_US.UTF-8"
-export LC_COLLATE="C"
+LANG="fr_FR.UTF-8"
+LANGUAGE="fr_FR:en_US"
+LC_COLLATE=C
 EOF
 
 echo "Sync Hwclock and timezones"
@@ -156,6 +158,7 @@ sudo ln -sf /usr/share/zoneinfo/Europe/Paris /etc/localtime
 sudo hwclock --systohc
 
 echo "Setting Samba"
+sudo rm -rf /etc/samba/smb.conf
 sudo touch /etc/samba/smb.conf
 tee -a /etc/samba/smb.conf << EOF
 [global]
@@ -172,7 +175,7 @@ tee -a /etc/samba/smb.conf << EOF
 	guest ok = yes
 	force create mode = 0755
 	force user = lyes
-	force group = WORKGROUP
+	force group = lyes
 EOF
 
 : '

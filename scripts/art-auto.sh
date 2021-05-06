@@ -150,6 +150,7 @@ export LC_COLLATE="C"
 EOF
 
 echo "Setting Samba"
+sudo rm -rf /etc/samba/smb.conf
 sudo touch /etc/samba/smb.conf
 tee -a /etc/samba/smb.conf << EOF
 [global]
