@@ -29,13 +29,13 @@ sudo pacman -S ffmpeg libva-utils libva-vdpau-driver vdpauinfo
 
 # Reference: https://github.com/lutris/docs/blob/master/WineDependencies.md
 # echo "Installing Lutris (with Wine support)"
-# sudo pacman -S lutris wine-staging giflib lib32-giflib libpng lib32-libpng libldap lib32-libldap gnutls lib32-gnutls mpg123 lib32-mpg123 openal lib32-openal v4l-utils lib32-v4l-utils libpulse lib32-libpulse libgpg-error lib32-libgpg-error alsa-plugins lib32-alsa-plugins alsa-lib lib32-alsa-lib libjpeg-turbo lib32-libjpeg-turbo sqlite lib32-sqlite libxcomposite lib32-libxcomposite libxinerama lib32-libgcrypt libgcrypt lib32-libxinerama ncurses lib32-ncurses opencl-icd-loader lib32-opencl-icd-loader libxslt lib32-libxslt libva lib32-libva gtk3 lib32-gtk3 gst-plugins-base-libs lib32-gst-plugins-base-libs
+sudo pacman -S lutris wine-staging giflib lib32-giflib libpng lib32-libpng libldap lib32-libldap gnutls lib32-gnutls mpg123 lib32-mpg123 openal lib32-openal v4l-utils lib32-v4l-utils libpulse lib32-libpulse libgpg-error lib32-libgpg-error alsa-plugins lib32-alsa-plugins alsa-lib lib32-alsa-lib libjpeg-turbo lib32-libjpeg-turbo sqlite lib32-sqlite libxcomposite lib32-libxcomposite libxinerama lib32-libgcrypt libgcrypt lib32-libxinerama ncurses lib32-ncurses opencl-icd-loader lib32-opencl-icd-loader libxslt lib32-libxslt libva lib32-libva gtk3 lib32-gtk3 gst-plugins-base-libs lib32-gst-plugins-base-libs
 
 echo "Installing Apps"
-sudo pacman -S xorg-server xrdb alsa-utils lm_sensors xorg-xbacklight tlp bspwm sxhkd st-terminfo nnn neovim ncurses tmux mpv sxiv hsetroot picom lemonbar-xft conky dunst base-devel libxft libxinerama libxcb xcb xcb-util-keysyms xcb-util-xrm xcb-util-wm scrot wget youtube-dl unzip openntpd ntfs-3g xdg-utils xprop xsetroot samba cifs-utils smbclient xdpyinfo tango-icon-theme arc-theme git
+sudo pacman -S xorg-server xrdb alsa-utils lm_sensors xorg-xbacklight tlp bspwm sxhkd rxvt-unicode st-terminfo nnn neovim ncurses tmux mpv sxiv hsetroot picom polybar dunst base-devel libxft libxinerama libxcb xcb xcb-util-keysyms xcb-util-xrm xcb-util-wm scrot wget youtube-dl unzip openntpd ntfs-3g xdg-utils xprop xsetroot samba cifs-utils smbclient xdpyinfo tango-icon-theme arc-theme git connman
 
 echo "Installing Fonts"
-sudo pacman -S ttf-ibm-plex
+sudo pacman -S ttf-ibm-plex noto-fonts-emoji
 
 echo "Installing Yay AUR Helper"
 git clone https://aur.archlinux.org/yay.git
@@ -143,10 +143,12 @@ EndSection
 EOF
 
 echo "Setting Locales"
+sudo rm -rf /etc/locale.conf
 sudo touch /etc/locale.conf
 tee -a /etc/locale.conf << EOF
-export LANG="en_US.UTF-8"
-export LC_COLLATE="C"
+LANG="fr_FR.UTF-8"
+LANGUAGE="fr_FR:en_US"
+LC_COLLATE=C
 EOF
 
 echo "Setting Samba"
@@ -160,14 +162,14 @@ tee -a /etc/samba/smb.conf << EOF
 	hosts allow = 192.168.0.0/16
 	hosts deny = 0.0.0.0/0
 
-[jugg]
+[anemone]
 	comment = Comfy sharing
 	path = /home/lyes/
 	read only = no
 	guest ok = yes
-	force create mode = 0755
+	force create mode = 755
 	force user = lyes
-	force group = WORKGROUP
+	force group = lyes
 EOF
 
 echo "Sync Hwclock and timezones"
@@ -185,15 +187,14 @@ EOF
 '
 
 echo "Setting up Runit"
-sudo ln -s /etc/runit/sv/wpa_supplicant/ /run/runit/service
-sudo ln -s /etc/runit/sv/dhcpcd/ /run/runit/service
+sudo ln -s /etc/runit/sv/connmand/ /run/runit/service
 sudo ln -s /etc/runit/sv/acpid/ /run/runit/service
 sudo ln -s /etc/runit/sv/tlp/ /run/runit/service
 sudo ln -s /etc/runit/sv/openntpd/ /run/runit/service
 sudo ln -s /etc/runit/sv/smbd /run/runit/service
 
+sudo sv restart connmand
 sudo sv restart wpa_supplicant
-sudo sv restart dhcpcd
 sudo sv restart acpid
 sudo sv restart tlp
 sudo sv restart openntpd
@@ -207,4 +208,4 @@ sudo ln -s /etc/fonts/conf.avail/10-hinting-slight.conf /etc/fonts/conf.d
 echo "Cloning Repos"
 git clone https://github.com/Speyll/dotfiles
 git clone https://github.com/Speyll/suckless
-git clone https://github.com/Speyll/2bwm
+git clone https://github.com/Speyll/dump
