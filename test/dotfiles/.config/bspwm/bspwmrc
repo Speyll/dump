@@ -1,0 +1,32 @@
+#!/bin/sh
+
+# Load files
+${HOME}/.config/bspwm/autostart.sh &
+
+# Defaults
+amixer -q set Master 100% &
+xbacklight -set 60 &
+
+# Workspace setup
+bspc monitor -d I II III
+
+# Workspaces
+bspc rule -a 'chromium' desktop='^1'
+bspc rule -a 'mpv' desktop='^3' center=on state=pseudo_tiled
+bspc rule -a 'nnn' center=on state=pseudo_tiled
+
+# General
+bspc config split_ratio             0.52
+bspc config single_monocle          true
+bspc config borderless_monocle      false
+bspc config gapless_monocle         false
+bspc config focus_follows_pointer   true
+
+# Border & gaps
+BW=0
+bspc config border_width $BW
+bspc config window_gap -2
+#bspc config top_padding 22
+for side in top right bottom left ; do
+    bspc config ${side}_padding $BW
+done
