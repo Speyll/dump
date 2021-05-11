@@ -102,7 +102,7 @@ Img to Anim Webp:
 	
 	magick convert -delay 500 *.webp -resize 1920x1080 -background black -compose Copy -gravity center -extent 1920x1080 -loop 0 Test.webp
 
-Numéro de téls:
+NumÃ©ro de tÃ©ls:
 ================
 	Ooredoo 1: 0558597940
 	Ooredoo 2: 0555793944
@@ -111,7 +111,8 @@ Numéro de téls:
 Miscellaneous:
 ================
 	Duckduckgo rice: speyllrice
-	Maman code: En 19** Linda a voyagé a Salou
+	Maman code: En 19** Linda a voyagÃ© a Salou
+	PC JN: Asus CM6431-FR035S UnitÃ© Centrale Intel Core i3 3220 3,3 GHz NVIDIA GT620
 
 Voix Montage:
 ------------
