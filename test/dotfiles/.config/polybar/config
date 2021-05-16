@@ -127,7 +127,7 @@ label = %percentage_used%%
 
 [module/wlan]
 type = internal/network
-interface = wlp2s0
+interface = wlp7s0
 interval = 3.0
 
 format-connected-prefix = " "
@@ -205,7 +205,7 @@ label-full = %percentage%%
 
 [module/eth]
 type = internal/network
-interface = enp1s0
+interface = enp9s0
 interval = 3.0
 
 format-connected-prefix = " "
