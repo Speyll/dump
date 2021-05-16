@@ -1,6 +1,6 @@
 ! font settings
-*.font: monospace:style=Medium:size=11
-urxvt.font: xft: monospace:style=Medium:size=11
+*.font: kakwafont:size=8
+urxvt.font: xft: kakwafont:size=8
 dmenu.font: kakwafont:size=8
 
 Xft.hinting: true
