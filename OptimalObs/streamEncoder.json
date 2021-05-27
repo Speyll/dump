@@ -1,0 +1,5 @@
+{
+    "bitrate": 2500,
+    "preset": "hq",
+    "rate_control": "CBR"
+}
