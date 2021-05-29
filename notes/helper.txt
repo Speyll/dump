@@ -1,0 +1,48 @@
+﻿random general helper
+================
+rfkill unblock on pepega laptop
+------------
+	sudo echo 'blacklist ideapad_laptop' | sudo tee -a /etc/modprobe.d/blacklist-ideapad-laptop.conf
+	Rfkill unblock all
+	sudo reboot now
+
+disable intel cpu mitigation
+------------
+	edit: /etc/default/grub
+	in GRUB_CMDLINE_LINUX_DEFAULT put:
+		"noibrs noibpb nopti nospectre_v2 nospectre_v1 l1tf=off nospec_store_bypass_disable no_stf_barrier mds=off mitigations=off"
+	sudo update-grub
+
+patch suckless
+------------
+	patch -Np1 -i patch.diff
+	
+update fonts:
+------------
+	cd /usr/share/fonts/misc
+	sudo mkfontscale
+	sudo mkfontdir
+	xset fp rehash
+	sudo fc-cache -f -v
+
+Windows refresh icones
+------------
+	taskkill /F /IM explorer.exe
+	cd /d %userprofile%\AppData\Local
+	attrib –h IconCache.db
+	del IconCache.db
+	start explorer.exe
+
+Font names:
+------------
+Kakwa 12px:
+-kakwa-kakwafont-medium-r-bold--12-120-72-72-c-60-iso8859-1
+-kakwa-kakwafont-medium-r-normal--12-120-72-72-c-60-iso8859-1
+
+Gohu 11px:
+-gohu-gohufont-medium-r-normal--11-80-100-100-c-60-iso10646-1
+-gohu-gohufont-bold-r-normal--11-80-100-100-c-60-iso10646-1
+
+Gohu 14px:
+-gohu-gohufont-medium-r-normal--14-100-100-100-c-80-iso10646-1
+-gohu-gohufont-bold-r-normal--14-100-100-100-c-80-iso10646-1
