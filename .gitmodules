@@ -1,0 +1,6 @@
+[submodule "scripts/linux/debian-auto"]
+	path = scripts/linux/debian-auto
+	url = https://gist.github.com/Speyll/852a81e28565a7dca2777a78da36eaa9
+[submodule "scripts/linux/void-auto"]
+	path = scripts/linux/void-auto
+	url = https://gist.github.com/Speyll/b2c46449fb9a9be44f07be3a81f01a2b

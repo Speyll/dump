@@ -1,0 +1,125 @@
+{
+    "createdBy": "Redirector v3.5.3",
+    "createdAt": "2022-08-31T17:59:19.760Z",
+    "redirects": [
+        {
+            "description": "Youtube short to video",
+            "exampleUrl": "https://www.youtube.com/shorts/HUMQGf8UQek",
+            "exampleResult": "https://www.youtube.com/watch?v=HUMQGf8UQek",
+            "error": null,
+            "includePattern": "https://www.youtube.com/shorts/*",
+            "excludePattern": "",
+            "patternDesc": "Redirect from Short to Youtube",
+            "redirectUrl": "https://www.youtube.com/watch?v=$1",
+            "patternType": "W",
+            "processMatches": "noProcessing",
+            "disabled": false,
+            "grouped": false,
+            "appliesTo": [
+                "main_frame"
+            ]
+        },
+        {
+            "description": "Tiktok to Proxitok",
+            "exampleUrl": "https://www.tiktok.com/@amirathick/video/7136996791785999617",
+            "exampleResult": "https://proxitok.pussthecat.org/@amirathick/video/7136996791785999617",
+            "error": null,
+            "includePattern": "https://www.tiktok.com/*",
+            "excludePattern": "",
+            "patternDesc": "Redirect from Tiktok to Proxitok",
+            "redirectUrl": "https://proxitok.pussthecat.org/$1",
+            "patternType": "W",
+            "processMatches": "noProcessing",
+            "disabled": false,
+            "grouped": false,
+            "appliesTo": [
+                "main_frame"
+            ]
+        },
+        {
+            "description": "Fandom to Wiki",
+            "exampleUrl": "https://pathofexile.fandom.com/wiki/List_of_claws",
+            "exampleResult": "https://www.poewiki.net/wiki/List_of_claws",
+            "error": null,
+            "includePattern": "https://pathofexile.fandom.com/wiki/*",
+            "excludePattern": "",
+            "patternDesc": "Redirect from fandom to real PoE Wiki",
+            "redirectUrl": "https://www.poewiki.net/wiki/$1",
+            "patternType": "W",
+            "processMatches": "noProcessing",
+            "disabled": false,
+            "grouped": false,
+            "appliesTo": [
+                "main_frame"
+            ]
+        },
+        {
+            "description": "Imgur to Rimgo",
+            "exampleUrl": "https://imgur.com/a/H8M4rcp",
+            "exampleResult": "https://i.bcow.xyz/a/H8M4rcp",
+            "error": null,
+            "includePattern": "^https?://i?.?imgur.com(/.*)?$",
+            "excludePattern": "",
+            "patternDesc": "Imgur to Rimgo",
+            "redirectUrl": "https://i.bcow.xyz$1",
+            "patternType": "R",
+            "processMatches": "noProcessing",
+            "disabled": false,
+            "grouped": false,
+            "appliesTo": [
+                "main_frame"
+            ]
+        },
+        {
+            "description": "De-mobilizer",
+            "exampleUrl": "https://en.m.wikipedia.org/",
+            "exampleResult": "https://en.wikipedia.org/",
+            "error": null,
+            "includePattern": "^(https?://)([a-z0-9-]*\\.)m(?:obile)?\\.(.*)",
+            "excludePattern": "",
+            "patternDesc": "Always show the desktop site of a webpage",
+            "redirectUrl": "$1$2$3",
+            "patternType": "R",
+            "processMatches": "noProcessing",
+            "disabled": false,
+            "grouped": false,
+            "appliesTo": [
+                "main_frame"
+            ]
+        },
+        {
+            "description": "AMP Redirect",
+            "exampleUrl": "https://www.google.com/amp/www.example.com/amp/document",
+            "exampleResult": "https://www.example.com/amp/document",
+            "error": null,
+            "includePattern": "^(?:https?://)www.(?:google|bing).com/amp/(.*)",
+            "excludePattern": "",
+            "patternDesc": "AMP is big bad",
+            "redirectUrl": "https://$1",
+            "patternType": "R",
+            "processMatches": "noProcessing",
+            "disabled": false,
+            "grouped": false,
+            "appliesTo": [
+                "main_frame"
+            ]
+        },
+        {
+            "description": "Doubleclick escaper",
+            "exampleUrl": "https://ad.doubleclick.net/ddm/trackclk/N135005.2681608PRIVATENETWORK/B20244?https://www.example.com",
+            "exampleResult": "https://www.example.com",
+            "error": null,
+            "includePattern": "^(?:https?://)ad.doubleclick.net/.*\\?(http?s://.*)",
+            "excludePattern": "",
+            "patternDesc": "Remove doubleclick link tracking",
+            "redirectUrl": "$1",
+            "patternType": "R",
+            "processMatches": "noProcessing",
+            "disabled": false,
+            "grouped": false,
+            "appliesTo": [
+                "main_frame"
+            ]
+        }
+    ]
+}
