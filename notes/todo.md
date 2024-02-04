@@ -46,6 +46,7 @@
   - [x] Make sure that the post-install script works.
   - [x] Have a no compromises functioning SwayWM.
   - [x] Make sure multi-monitor setup works.
+  - [x] Have a fully working VPN setup.
 
 - **Learning**
   - [x] Complete Drawabox lesson 1.
@@ -60,7 +61,6 @@
   - [ ] Find free cloud storage solution for 200GB content.
 
 - **System Configuration**
-  - [ ] Have a fully working VPN setup.
   - [ ] Transition to Linux as primary OS.
 
 - **Learning**
