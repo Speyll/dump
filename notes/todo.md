@@ -14,6 +14,8 @@
   - [x] Find a way to clean the .git folder.
   - [x] add a README to veqev.
   - [x] Make anemone multilangual more streamlined.
+  - [x] Create CSS classless framework.
+  - [x] Streamlined and integrated suCSS into anemone.
 
 - **Server Setup**
   - [x] Transition to Debian headless servers.
@@ -55,10 +57,9 @@
 ### Remaining Tasks:
 
 - **Web Stuff**
-  - [ ] Create CSS classless framework.
 
 - **Server Setup**
-  - [ ] Find free cloud storage solution for 200GB content.
+  - [ ] Find free cloud storage solution for 200GB content. (Terabox)
 
 - **System Configuration**
   - [ ] Transition to Linux as primary OS.
