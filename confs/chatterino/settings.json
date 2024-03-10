@@ -1,7 +1,6 @@
 {
     "behaviour": {
-        "autorun": true,
-        "mentionUsersWithComma": false
+        "autorun": false
     },
     "hotkeys": {
         "addedDefaults": [
@@ -66,6 +65,7 @@
             "send message and keep text",
             "show global search",
             "show search",
+            "toggle live tabs only",
             "toggle local r9k",
             "toggle tab visibility",
             "zoom in",
@@ -512,6 +512,14 @@
                 "7"
             ]
         },
+        "toggle live tabs only": {
+            "action": "setTabVisibility",
+            "keySequence": "Ctrl+Shift+L",
+            "category": "window",
+            "arguments": [
+                "toggleLiveOnly"
+            ]
+        },
         "toggle local r9k": {
             "action": "toggleLocalR9K",
             "keySequence": "Ctrl+H",
@@ -552,65 +560,72 @@
         }
     },
     "misc": {
-        "currentVersion": "7.4.0",
+        "currentVersion": "7.4.6",
         "lockNotebookLayout": false
+    },
+    "cache": {
+        "path": ""
     },
     "accounts": {
         "uid95024426": {
             "username": "speyll",
             "userID": "95024426",
             "clientID": "g5zg0400k4vhrx2g6xi4hgveruamlv",
-            "oauthToken": "eqbkfxdof4wkazes12dczbwdidigm3"
+            "oauthToken": "aljad13wqvog2vak3y4e1cdvadbv8y"
         },
-        "current": "speyll",
-        "uid844752349": {
-            "username": "anonspeyll",
-            "userID": "844752349",
-            "clientID": "g5zg0400k4vhrx2g6xi4hgveruamlv",
-            "oauthToken": "1wvg6l5ln92p05r7e8b1hkh56bymu1"
-        }
+        "current": "speyll"
     },
     "appearance": {
-        "showReplyButton": false,
-        "windowAlwaysOnTop": true,
-        "smoothScrolling": false,
-        "messages": {
-            "separateMessages": false,
-            "alternateMessageBackground": true,
-            "colorizeNicknames": true,
-            "showLastMessageIndicator": true,
-            "hideModerated": false,
-            "showTimestamps": true,
-            "timestampFormat": "hh:mm",
-            "collapseMessagesMinLines": 0,
-            "lastMessagePattern": 1,
-            "lastMessageColor": "#ff7f2026"
-        },
-        "enableAnimationsWhenFocused": true,
-        "thumbnailSize": 100,
-        "currentFontFamily": "Segoe UI",
-        "currentFontSize": 10,
-        "uiScale2": 1.0,
         "showTabCloseButton": false,
-        "splitheader": {
-            "showTitle": true,
-            "showGame": true,
-            "showViewerCount": false,
-            "showUptime": false
-        }
+        "messages": {
+            "alternateMessageBackground": true,
+            "showTimestamps": true,
+            "timestampFormat": "hh:mm"
+        },
+        "thumbnailSizeStream": 2
     },
-    "links": {
-        "linkInfoTooltip": true
+    "highlighting": {
+        "users": [
+            {
+                "pattern": "erobb221",
+                "showInMentions": true,
+                "alert": true,
+                "sound": true,
+                "regex": false,
+                "case": false,
+                "soundUrl": "",
+                "color": "#7f7f3f49"
+            },
+            {
+                "pattern": "quin69",
+                "showInMentions": true,
+                "alert": true,
+                "sound": false,
+                "regex": false,
+                "case": false,
+                "soundUrl": "",
+                "color": "#7f7f3f49"
+            },
+            {
+                "pattern": "forsen",
+                "showInMentions": true,
+                "alert": true,
+                "sound": false,
+                "regex": false,
+                "case": false,
+                "soundUrl": "",
+                "color": "#7f7f3f49"
+            }
+        ]
     },
     "ui": {
         "lastSelectChannelTab": 0,
         "lastSelectIrcConn": -1
     },
     "streamerMode": {
-        "hideLinkThumbnails": true
+        "hideLinkThumbnails": false
     },
-    "emotes": {
-        "removeSpacesBetweenEmotes": false,
-        "showUnlistedSevenTVEmotes": true
+    "links": {
+        "linkInfoTooltip": true
     }
 }

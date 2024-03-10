@@ -5,15 +5,8 @@
                 "x": 114,
                 "y": 77
             },
-            "height": 883,
+            "height": 1039,
             "tabs": [
-                {
-                    "highlightsEnabled": true,
-                    "splits2": {
-                        "flexh": 1,
-                        "flexv": 1
-                    }
-                },
                 {
                     "highlightsEnabled": true,
                     "splits2": {
@@ -35,21 +28,6 @@
                     "splits2": {
                         "data": {
                             "name": "erobb221",
-                            "type": "twitch"
-                        },
-                        "filters": [
-                        ],
-                        "flexh": 1,
-                        "flexv": 1,
-                        "moderationMode": false,
-                        "type": "split"
-                    }
-                },
-                {
-                    "highlightsEnabled": true,
-                    "splits2": {
-                        "data": {
-                            "name": "airwicklamontrobbinsjr",
                             "type": "twitch"
                         },
                         "filters": [
@@ -124,7 +102,22 @@
                     "highlightsEnabled": true,
                     "splits2": {
                         "data": {
-                            "name": "ikumi",
+                            "name": "lacari",
+                            "type": "twitch"
+                        },
+                        "filters": [
+                        ],
+                        "flexh": 1,
+                        "flexv": 1,
+                        "moderationMode": false,
+                        "type": "split"
+                    }
+                },
+                {
+                    "highlightsEnabled": true,
+                    "splits2": {
+                        "data": {
+                            "name": "speyll",
                             "type": "twitch"
                         },
                         "filters": [
@@ -137,9 +130,9 @@
                 }
             ],
             "type": "main",
-            "width": 326,
+            "width": 333,
             "x": 1582,
-            "y": 152
+            "y": 4
         }
     ]
 }
