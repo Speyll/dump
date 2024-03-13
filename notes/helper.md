@@ -144,6 +144,7 @@ UUID=a667fc4d-5a4d-4f35-b828-fbcabd0d5923   /media/RANDOM  ext4    errors=remoun
 Then, run:
 ```bash
 mount -a
+sudo chown -Rc $USER:  /media/*
 ```
 
 #### Fix MTP integration
