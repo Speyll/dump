@@ -342,6 +342,12 @@ Add-AppxPackage Microsoft.VP9VideoExtensions1.0.50901.0_x64_8wekyb3d8bbwe.appx
 
 ### /web/
 
+#### Open new tab links in background
+```
+# about:config
+browser.tabs.loadDivertedInBackground
+```
+
 #### Endless Scroll
 ```javascript
 function autoScrolling() {
