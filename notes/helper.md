@@ -106,9 +106,11 @@ comm -23 <(pacman -Qqett | sort) <(pacman -Qqg -g base-devel | sort | uniq)
 patch -Np1 -i patch.diff
 ```
 
-#### Clone git repo with submodules
+#### Clone & Update git repo with submodules
 ```bash
 git clone --recurse-submodules https://github.com/repo/git
+git submodule update --init --force --remote
+git pull --recurse-submodules
 ```
 
 #### Get system information
