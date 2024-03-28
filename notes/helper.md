@@ -96,10 +96,13 @@ rfkill unblock all
 sudo reboot now
 ```
 
-#### List manually installed pacman packages
+#### List manually installed packages in diff pkg managers
 ```bash
 comm -23 <(pacman -Qqett | sort) <(pacman -Qqg -g base-devel | sort | uniq)
+zypper packages --installed-only | grep i+
+xbps-query -m
 ```
+
 
 #### Patch Suckless software
 ```bash
@@ -299,6 +302,13 @@ sudo nano /etc/NetworkManager/conf.d/default-wifi-powersave-on.conf
 wifi.powersave = 2
 
 sudo systemctl restart NetworkManager
+```
+
+#### /g/ Linux - Gaming
+
+#### Add MangoHUD to your Steam games
+```bash
+MANGOHUD=1 %command%
 ```
 
 ### /windows/
