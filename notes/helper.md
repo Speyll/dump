@@ -103,6 +103,10 @@ zypper packages --installed-only | grep i+
 xbps-query -m
 ```
 
+#### Check size of directories
+```bash
+du -cha --max-depth=1 / | grep -E "M|G"
+```
 
 #### Patch Suckless software
 ```bash
