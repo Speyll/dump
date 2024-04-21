@@ -1,0 +1,30 @@
+#!/bin/bash
+
+# Clone xbps-src repository if not already cloned
+if [ ! -d "$HOME/.local/share/void-packages" ]; then
+    git clone --depth 1 https://github.com/void-linux/void-packages.git $HOME/.local/share/void-packages
+fi
+
+# Configure xbps-src
+cd $HOME/.local/share/void-packages
+./xbps-src binary-bootstrap
+
+# Clone Hyprland repository
+git clone --depth 1 https://github.com/Makrennel/hyprland-void.git $HOME/.local/share/hyprland-void
+
+# Copy Hyprland files to void-packages
+cp -r $HOME/.local/share/hyprland-void/srcpkgs/* $HOME/.local/share/void-packages/srcpkgs/
+
+# Append Hyprland shlibs to void-packages shlibs
+cat $HOME/.local/share/hyprland-void/common/shlibs >> $HOME/.local/share/void-packages/common/shlibs
+
+# Build and install Hyprland packages
+./xbps-src pkg hyprland
+./xbps-src pkg xdg-desktop-portal-hyprland
+./xbps-src pkg hyprland-protocols
+
+cd $HOME/.local/share/void-packages
+sudo xbps-install -R hostdir/binpkgs hyprland xdg-desktop-portal-hyprland hyprland-protocols
+
+echo "Hyprland has been installed successfully."
+
