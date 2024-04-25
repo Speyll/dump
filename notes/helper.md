@@ -31,6 +31,14 @@ ps aux | awk '$6 != 0 {print $6/1024 " MB\t\t" $11}' | sort -nr
 lynx --dump --listonly --nonumbers --hiddenlinks=ignore https://archive.org/download/alice_in_wonderland_librivox | grep -E '.ogg' | aria2c -i - -c -x 16 -j 4
 ```
 
+#### Gamescope env variables 
+```bash
+MESA_VK_WSI_PRESENT_MODE=immediate
+vk_xwayland_wait_ready=false
+XKB_DEFAULT_LAYOUT=en
+MANGOHUD=1
+```
+
 #### Patch Suckless software
 ```bash
 patch -Np1 -i patch.diff

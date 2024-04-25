@@ -34,22 +34,52 @@ if lspci | grep -q 'Intel'; then
 fi
 
 # Install other packages
-install_packages() {
+install_core_packages() {
   sudo xbps-install -y \
     git wayland dbus dbus-glib curl elogind polkit-elogind \
     xdg-utils xdg-desktop-portal-gtk xdg-desktop-portal-wlr xdg-desktop-portal \
-    pipewire gstreamer1-pipewire libspa-bluetooth pavucontrol \
+    pipewire gstreamer1-pipewire libspa-bluetooth pavucontrol wlr-randr \
     noto-fonts-emoji noto-fonts-ttf font-hack-ttf font-awesome \
     grim slurp wl-clipboard cliphist \
-    qimgv swaybg mpv ffmpeg \
+    imv swaybg mpv ffmpeg yt-dlp \
     mako libnotify \
     nnn unzip p7zip unrar pcmanfm-qt ffmpegthumbnailer lxqt-archiver gvfs-smb gvfs-afc gvfs-mtp udisks2 \
     breeze-gtk breeze-snow-cursor-theme breeze-icons \
-    qt5-wayland wireguard bluez \
-    sway nano foot Waybar wlsunset tofi brightnessctl #yambar seatd dumb_runtime_dir polkit-kde-agent
+    qt5-wayland bluez \
+    sway neovim foot Waybar wlsunset tofi brightnessctl #nano yambar qimgv seatd dumb_runtime_dir polkit-kde-agent
 }
 
-install_packages
+install_networking_packages() {
+  sudo xbps-install -y \
+    fuse-sshfs lynx rsync wireguard \
+}
+
+install_flatpak_packages() {
+  sudo xbps-install -y flatpak
+  flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+  flatpak install flathub io.gitlab.librewolf-community
+  flatpak install flathub com.github.tchx84.Flatseal
+}
+
+install_flatpak_gaming() {
+  flatpak install flathub com.usebottles.bottles
+  flatpak install flathub org.freedesktop.Platform.VulkanLayer.MangoHud
+  flatpak install flathub org.freedesktop.Platform.VulkanLayer.gamescope 
+}
+
+install_gaming_packages() {
+  sudo xbps-install -y \
+    void-repo-multilib-nonfree \
+    libgcc-32bit libstdc++-32bit libdrm-32bit libglvnd-32bit wine wine-mono gamemode MangoHud gamescope
+  sudo usermod -aG gamemode $USER 
+}
+
+# !IMPORTANT! here you can select what get installed and what not by commenting
+install_core_packages
+install_networking_packages
+install_flatpak_packages
+#install_flatpak_gaming
+#install_gaming_packages
 
 # Set up PipeWire autostart
 sudo ln -s /usr/share/applications/pipewire.desktop /etc/xdg/autostart/pipewire.desktop
