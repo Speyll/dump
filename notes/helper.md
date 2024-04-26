@@ -385,10 +385,16 @@ magick convert -delay 500 *.jpg -quality 100 -define webp:lossless=true -resize 
 
 ### /web/
 
-#### Open new tab links in background
+#### Open new tabs in background on firefox
 ```
 # about:config
 browser.tabs.loadDivertedInBackground
+```
+
+#### Enable vaapi hw accel on firefox
+```
+# about:config
+media.ffmpeg.vaapi.enabled
 ```
 
 #### Endless Scroll
