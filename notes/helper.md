@@ -38,6 +38,15 @@ vk_xwayland_wait_ready=false
 XKB_DEFAULT_LAYOUT=en
 MANGOHUD=1
 ```
+#### Add wireguard connection with nmcli
+```bash
+nmcli connection import type wireguard file /path/to/your/wg.conf
+```
+
+#### Disable nm autoconnect with nmcli
+```bash
+nmcli connection modify <connection_name> connection.autoconnect no
+```
 
 #### Patch Suckless software
 ```bash
