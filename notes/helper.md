@@ -52,6 +52,10 @@ nmcli connection modify <connection_name> connection.autoconnect no
 ```bash
 patch -Np1 -i patch.diff
 ```
+#### Clean bad NTFS drive
+```bash
+ntfsfix --clear-dirty /dev/sdXY
+```
 
 #### Clone & Update git repo with submodules
 ```bash
