@@ -26,6 +26,13 @@ sudo du -cha --max-depth=1 / | grep -E "M|G"
 ps aux | awk '$6 != 0 {print $6/1024 " MB\t\t" $11}' | sort -nr
 ```
 
+### Make Flatpak use system font settings
+```bash
+flatpak override --user --filesystem=xdg-config/fontconfig:ro
+flatpak override --user --env=_JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true'
+flatpak override --user --env=_JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on'
+```
+
 #### Extract links with lynx and download them with aria2
 ```bash
 lynx --dump --listonly --nonumbers --hiddenlinks=ignore https://archive.org/download/alice_in_wonderland_librivox | grep -E '.ogg' | aria2c -i - -c -x 16 -j 4

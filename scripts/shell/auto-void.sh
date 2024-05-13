@@ -1,7 +1,7 @@
 #!/bin/sh
 # Void Linux Post-Installation Script for Wayland
 # Author: Speyll
-# Last-update: 03-04-2024
+# Last-update: 13-05-2024
 
 # Enable debugging output and exit on error
 set -x
@@ -42,11 +42,11 @@ install_core_packages() {
     noto-fonts-emoji noto-fonts-ttf font-hack-ttf font-awesome \
     grim slurp wl-clipboard cliphist \
     imv swaybg mpv ffmpeg yt-dlp \
-    mako libnotify \
+    fnott libnotify \
     nnn unzip p7zip unrar pcmanfm-qt ffmpegthumbnailer lxqt-archiver gvfs-smb gvfs-afc gvfs-mtp udisks2 \
     breeze-gtk breeze-snow-cursor-theme breeze-icons \
     qt5-wayland bluez \
-    sway neovim foot Waybar wlsunset tofi brightnessctl #nano yambar qimgv seatd dumb_runtime_dir polkit-kde-agent
+    wayfire neovim foot Waybar wlsunset fuzzel brightnessctl #labwc sway nano yambar qimgv seatd dumb_runtime_dir polkit-kde-agent
 }
 
 install_networking_packages() {
