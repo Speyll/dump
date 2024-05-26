@@ -13,3 +13,5 @@ rm -rf "$HOME/dotfiles"
 chmod -R +X "$HOME/.local/bin" "$HOME/.local/share/applications" "$HOME/.config/autostart/"
 chmod +x "$HOME/.config/yambar/sway-switch-keyboard.sh" "$HOME/.config/yambar/xkb-layout.sh" "$HOME/.config/waybar/sway-switch-keyboard.sh" "$HOME/.config/waybar/xkb-layout.sh" "$HOME/.config/autostart/*" "$HOME/.local/bin/*" 
 ln -s "$HOME/.config/mimeapps.list" "$HOME/.local/share/applications/"
+rm -rf README.md
+rm -rf .git
