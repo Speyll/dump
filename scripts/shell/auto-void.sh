@@ -1,7 +1,7 @@
 #!/bin/sh
 # Void Linux Post-Installation Script for Wayland
 # Author: Speyll
-# Last-update: 13-05-2024
+# Last-update: 29-05-2024
 
 # Enable debugging output and exit on error
 set -x
@@ -36,7 +36,7 @@ fi
 # Install other packages
 install_core_packages() {
   sudo xbps-install -y \
-    git wayland dbus dbus-glib curl elogind polkit-elogind \
+    git wayland dbus dbus-glib curl elogind polkit-elogind chrony \
     xdg-utils xdg-desktop-portal-gtk xdg-desktop-portal-wlr xdg-desktop-portal \
     pipewire gstreamer1-pipewire libspa-bluetooth pavucontrol wlr-randr \
     noto-fonts-emoji noto-fonts-ttf font-hack-ttf font-awesome \
@@ -84,11 +84,11 @@ install_flatpak_packages
 # Set up PipeWire autostart
 sudo ln -s /usr/share/applications/pipewire.desktop /etc/xdg/autostart/pipewire.desktop
 
-# Set up elogind
-sudo ln -s /etc/sv/elogind /var/service/
-
 # Set up bluetooth autostart
 sudo ln -s /etc/sv/bluetoothd /var/service/
+
+# Set up chrony
+sudo ln -s /etc/sv/chronyd /var/service/
 
 # Remove unused services (TTYs)
 sudo rm -rf /var/service/agetty-tty3
