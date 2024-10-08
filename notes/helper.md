@@ -436,6 +436,26 @@ javascript:window.scrollTo(0,document.body.scrollHeight);
 javascript:clearInterval(varScroll);
 ```
 
+#### Endless Scroll in console
+```javascript
+(function scrollIndefinitely() {
+  const scrollInterval = setInterval(() => {
+    window.scrollTo(0, document.body.scrollHeight);
+  }, 100); // Adjust interval as needed
+
+  // Stop scrolling after a certain amount of time (optional)
+  // setTimeout(() => clearInterval(scrollInterval), 10000); // Stops after 10 seconds
+
+  // Add a listener to stop the scrolling manually
+  window.addEventListener('keydown', (event) => {
+    if (event.key === 's') { // Press 's' key to stop
+      clearInterval(scrollInterval);
+      console.log('Scrolling stopped');
+    }
+  });
+})();
+```
+
 #### Hide Section
 ```html
 <div id="hashLink">
