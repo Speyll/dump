@@ -12,7 +12,14 @@ author_map=(
     ["煌めく星"]="kiramekuhoshi"
     ["sleeping"]="threetomatoes"
     ["李十七夜"]="lishiliuye"
-    ["李十七夜"]="lishiliuye"
+    ["我要成为射蛇糕手"]="scydw1"
+    ["白墨"]="6aminoac9"
+    ["s烁乐"]="1595413150qqcom"
+    ["昼9724"]="noon9724"
+    ["ENE贵音"]="ene"
+    ["reui_s"]="qwe6s"
+    ["Hoshino Homura"]="hoshinohomura"
+    ["Ahoy pony"]="ahoypony"
 )
 
 # Loop through files in the second directory
