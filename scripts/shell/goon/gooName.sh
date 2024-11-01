@@ -20,6 +20,7 @@ author_map=(
     ["reui_s"]="qwe6s"
     ["Hoshino Homura"]="hoshinohomura"
     ["Ahoy pony"]="ahoypony"
+    ["March Shadow"]="marchshadow"
 )
 
 # Loop through files in the second directory
