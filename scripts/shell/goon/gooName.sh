@@ -21,6 +21,13 @@ author_map=(
     ["Hoshino Homura"]="hoshinohomura"
     ["Ahoy pony"]="ahoypony"
     ["March Shadow"]="marchshadow"
+    ["包子"]="ewewaa"
+    ["iw西琳"]="sirin5201"
+    ["mmmohhsh"]="wouldiiii"
+    ["uploading"]="bbcklii585"
+    ["JYB_UNKNOWN"]="jybunkown"
+    ["Magic conch"]="magicconch"
+    ["幽墨"]="9aminoac6"
 )
 
 # Loop through files in the second directory
