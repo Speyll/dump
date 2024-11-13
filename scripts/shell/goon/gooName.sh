@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Set directories
-DIR1="/media/BX200/pron/hentai/" 
-DIR2="/media/BX200/pron/dump/0toEncode/" 
+DIR1="/media/BX200/pron/hentai/"
+DIR2="/media/BX200/pron/dump/0toEncode/"
 
 # Define a pattern-to-author map, using quotes around each key and value
 declare -A author_map
@@ -28,6 +28,12 @@ author_map=(
     ["JYB_UNKNOWN"]="jybunkown"
     ["Magic conch"]="magicconch"
     ["幽墨"]="9aminoac6"
+    ["天平キツネ"]="extrafoxes"
+    ["ななし"]="tsubasamx"
+    ["痕久"]="zabhs123"
+    ["こしあん"]="aliceallice96"
+    ["あわわ＞＜"]="awawa1887"
+    ["托尼带水"]="tonyds"
 )
 
 # Loop through files in the second directory
