@@ -405,6 +405,10 @@ magick convert -delay 500 *.jpg -quality 100 -define webp:lossless=true -resize 
 
 ### /web/
 
+#### Spotdl
+pip install --upgrade spotdl
+spotdl sync https://open.spotify.com/playlist/7yZqrpo21PhOcsS2iX5TLG?nd=1 --save-file /home/lyes/downloads/junk/python/spotdl/music/sync.spotdl --output /home/lyes/downloads/junk/python/spotdl/music/ --client-id e48c5e7cf5da429a84cf6d7a2a0deb1e --client-secret 24099d9743ae472a8be350a04a735053
+
 #### Open new tabs in background on firefox
 ```
 # about:config

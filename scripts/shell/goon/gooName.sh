@@ -34,6 +34,8 @@ author_map=(
     ["こしあん"]="aliceallice96"
     ["あわわ＞＜"]="awawa1887"
     ["托尼带水"]="tonyds"
+    ["MMD風俗ALBATROSS"]="mmdalbatross"
+    ["Arima Kaori"]="lzx999111"
 )
 
 # Loop through files in the second directory
