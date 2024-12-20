@@ -269,9 +269,8 @@ sudo systemctl restart NetworkManager
 #### Add MangoHUD & Gamescope to your Steam games
 ```bash
 MANGOHUD=1 %command%
-gamemoderun -- mangohud %command%
-SDL_VIDEO_MINIMIZE_ON_FOCUS_LOSS=0 gamescope -r 60 -H 1080 -f -- mangohud %command%
-gamemoderun SDL_VIDEO_MINIMIZE_ON_FOCUS_LOSS=0 gamescope -r 60 -H 1080 -f -- mangohud %command%
+gamemoderun mangohud %command%
+LD_PRELOAD="" SDL_VIDEO_MINIMIZE_ON_FOCUS_LOSS=0 gamemoderun gamescope -w 1920 -h 1080 -f -r 60 --mangoapp -- %command%
 ```
 
 ### /windows/
