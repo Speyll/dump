@@ -2,7 +2,7 @@
 
 # Set directories
 DIR1="/media/BX200/pron/hentai/"
-DIR2="/media/BX200/pron/dump/0toEncode/"
+DIR2="/media/BX200/pron/dump/0toEncode/encVids/"
 
 # Define a pattern-to-author map
 declare -A author_map=(
@@ -107,4 +107,3 @@ for file in "$DIR2"/*.mp4; do
         echo "Failed to rename $filename"
     fi
 done
-

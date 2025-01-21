@@ -12,6 +12,8 @@ fi
 # Start tmux session with all windows configured
 tmux new-session -d -s "$SESSION_NAME" -n "video-reenc" -c "/media/BX200/pron/dump/0toEncode/" \; \
     new-window -n "audio-reenc" -c "/media/BX200/pron/dump/0toEncode/audio" \; \
+    new-window -n "scripts" -c "/media/BX200/pron/dump/0toEncode/scripts" \; \
+    new-window -n "pictures" -c "/media/BX200/pron/dump/0toEncode/0pictures" \; \
     new-window -n "ufetch" -c "$HOME" \; \
     send-keys -t "$SESSION_NAME:ufetch" "ufetch-void" C-m
 
