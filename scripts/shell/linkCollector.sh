@@ -1,27 +1,40 @@
 #!/bin/bash
 
-# File to store the collected links
+# Configuration
 LINKS_FILE=~/downloads/jd_links.txt
+CHECK_INTERVAL=0.3  # Reduced sleep time for better responsiveness
 
-# Function to check if a URL is already in the file
-url_exists() {
-    grep -Fxq "$1" "$LINKS_FILE"
-}
+# Create the file if it doesn't exist
+touch "$LINKS_FILE"
 
-# Monitor the clipboard for new links
+# Declare associative array for O(1) lookups
+declare -A SEEN_URLS
+
+# Load existing URLs into memory
+while IFS= read -r url; do
+    SEEN_URLS["$url"]=1
+done < "$LINKS_FILE"
+
+last_content=""
 while true; do
-    # Get the current clipboard content
-    CLIPBOARD_CONTENT=$(wl-paste --no-newline)
-
-    # Check if the clipboard content is a valid URL and not already in the file
-    if [[ $CLIPBOARD_CONTENT =~ ^https?:// ]] && ! url_exists "$CLIPBOARD_CONTENT"; then
-        echo "New URL detected: $CLIPBOARD_CONTENT"
-        echo "$CLIPBOARD_CONTENT" >> "$LINKS_FILE"
-        # Send a desktop notification
-        notify-send -t 2000 "New URL Added" "$CLIPBOARD_CONTENT"
+    current_content=$(wl-paste --no-newline 2>/dev/null)
+    
+    # Only process if content changed and is not empty
+    if [[ "$current_content" != "$last_content" && -n "$current_content" ]]; then
+        # Simple URL validation regex (adjust as needed)
+        if [[ $current_content =~ ^https?://[^[:space:]]+ ]]; then
+            trimmed_url=$(awk '{$1=$1};1' <<< "$current_content")  # Trim whitespace
+            
+            # Check if URL is new
+            if [[ -z "${SEEN_URLS[$trimmed_url]}" ]]; then
+                echo "$trimmed_url" >> "$LINKS_FILE"
+                SEEN_URLS["$trimmed_url"]=1
+                notify-send -t 2000 "JD Link Added" "$trimmed_url"
+                echo "[$(date +%T)] New URL stored: $trimmed_url"
+            fi
+        fi
+        last_content="$current_content"
     fi
-
-    # Wait for a short period before checking again
-    sleep 2
+    
+    sleep $CHECK_INTERVAL
 done
-
