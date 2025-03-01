@@ -207,6 +207,18 @@ sudo systemctl enable qbittorrent-nox@lyes
 # whitelist 0.0.0.0/0
 ```
 
+#### Setup Nix on void
+```bash
+sudo ln -s /etc/sv/nix-daemon /var/service/
+sudo sv start nix-daemon
+source /etc/profile
+. .profile
+nix-shell -p home-manager
+sudo nix-collect-garbage -d
+nix-channel --add https://nixos.org/channels/nixpkgs-unstable nixpkgs
+nix-channel --update
+```
+
 #### Setup NFS
 ```bash
 sudo apt install --no-install-recommends nfs-kernel-server

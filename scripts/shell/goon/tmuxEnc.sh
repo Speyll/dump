@@ -2,7 +2,7 @@
 
 # Configuration
 SESSION_NAME="rec"
-BASE_DIR="/media/BX200/pron/dump/0toEncode"
+BASE_DIR="/media/BX200/pron"
 
 # Check for existing session
 if tmux has-session -t "$SESSION_NAME" 2>/dev/null; then
@@ -13,10 +13,11 @@ if tmux has-session -t "$SESSION_NAME" 2>/dev/null; then
 fi
 
 # Create new session and windows
-tmux new-session -d -s "$SESSION_NAME" -n "video-reenc" -c "$BASE_DIR/"
-tmux new-window -t "$SESSION_NAME" -n "audio-reenc" -c "$BASE_DIR/audio"
+tmux new-session -d -s "$SESSION_NAME" -n "video-reenc" -c "$BASE_DIR/dump/0toEncode"
+tmux new-window -t "$SESSION_NAME" -n "audio-reenc" -c "$BASE_DIR/dump/0toEncode/audio"
+tmux new-window -t "$SESSION_NAME" -n "pic-reenc" -c "$BASE_DIR/dump/0toEncode/0pictures"
 tmux new-window -t "$SESSION_NAME" -n "scripts" -c "$BASE_DIR/scripts"
-tmux new-window -t "$SESSION_NAME" -n "pictures" -c "$BASE_DIR/0pictures"
+tmux new-window -t "$SESSION_NAME" -n "pictures" -c "$BASE_DIR/pics/slides"
 tmux new-window -t "$SESSION_NAME" -n "spefetch" -c "$HOME"
 tmux send-keys -t "$SESSION_NAME:spefetch" "spefetch" Enter
 
